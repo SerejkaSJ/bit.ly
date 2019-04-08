@@ -14,7 +14,7 @@ pip install -r requirements.txt
 
 ### How to start
 
-Enter the following in the command line: `main.py  [link]`
+Enter the following in the command line: `python main.py  [link]`
 
 
 
