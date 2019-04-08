@@ -4,7 +4,7 @@ import json
 import os
 
 from dotenv import load_dotenv
-TOKEN = os.getenv("TOKEN")
+
 
 
 def create_short_link(token, link):
@@ -24,14 +24,15 @@ def get_summary_link(token, link):
 
 if __name__ == "__main__":
     load_dotenv()
+    token = os.getenv("TOKEN")
     parser = argparse.ArgumentParser()
     parser.add_argument("link")
     args = parser.parse_args()
     your_link = args.link
     try:
-        print(get_summary_link(TOKEN, your_link))
+        print(get_summary_link(token, your_link))
     except json.decoder.JSONDecodeError:
         your_link = 'https://' + your_link
-        print(create_short_link(TOKEN, your_link))
+        print(create_short_link(token, your_link))
     except KeyError:
-        print(create_short_link(TOKEN, your_link))
+        print(create_short_link(token, your_link))
